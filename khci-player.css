@@ -3,6 +3,29 @@
     width: 540px;
 }
 
-.search{
-	text-align: center;
+#search_bar {
+  text-align: center;
+  height: 40px;
+  width: 500px;
+  border: 1px solid #1b5ac2;
+  background: #ffffff
+}
+
+#search_input {
+    font-size: 16px;
+    width: 325px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+
+#search_button {
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  background: #1b5ac2;
+  outline: none;
+  float: right;
+  color: #ffffff;
 }

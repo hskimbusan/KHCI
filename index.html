@@ -8,10 +8,10 @@
 <!--		<script src="./khci-player.js"></script>-->
 		<div class="center-div">
 			<img id="b4" width="80" height="80" src="./images/b4.png">
-			<div class="search">
-				<input type="text">
-				<input type="button" value="search">
-			</div>
+			<div id='search_bar'>
+	      <input type='text' placeholder='볼빨간 사춘기' id='search_input'>
+	      <button id='search_button'> 검색
+	    </div>
 			<div class="library">
 				<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
 			</div>
@@ -23,14 +23,14 @@
 				<script>
 					var c = document.getElementById("Record");
 					var ctx = c.getContext("2d");
-					
+
 					ctx.beginPath();
 					ctx.arc(250, 150, 100, 0, 2*Math.PI);
 					ctx.stroke();
 					ctx.fillStyle = "black";
 					ctx.fill();
-					
-					window.onload = function(){						
+
+					window.onload = function(){
 						var album = c.getContext("2d");
 						var img = document.getElementById("b4");
 						album.drawImage(img, 170, 70, 160, 160);
