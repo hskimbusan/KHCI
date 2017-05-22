@@ -2,40 +2,62 @@
 <html>
 	<head>
 		<link href="khci-player.css" rel="stylesheet" />
+    	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 		<title>K-HCI</title>
 	</head>
 	<body>
-<!--		<script src="./khci-player.js"></script>-->
+    	<script src="./jquery-3.2.1.min.js"></script>
+		<script src="./khci-player.js"></script>
+      	<script src="jquery/js/jquery-1.9.0.min.js"></script>
+      	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 		<div class="center-div">
-			<img id="b4" width="80" height="80" src="./images/b4.png">
 			<div id='search_bar'>
 	      <input type='text' placeholder='볼빨간 사춘기' id='search_input'>
 	      <button id='search_button'> 검색
 	    </div>
 			<div class="library">
 				<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
+				<script>
+					var c = document.getElementById("library");
+					var ctx = c.getContext("2d");
+					ctx.rect(20, 20, 460, 60);
+					ctx.stroke();
+					
+					var song1 = c.getContext("2d");
+					song1.rect(25, 22, 20, 56);
+					song1.stroke();
+					
+				</script>
 			</div>
 			<div class="playlist">
-				<canvas id="playlist" width="500" height="200" style="border:1px solid"></canvas>
+				<img id="b4" width="140" height="140" src="./images/b4.png">
+				<img id="bb" width="140" height="140" src="./images/bb.png">
+				<img id="akmu" width="140" height="140" src="./images/akmu.png">
 			</div>
 			<div class="player">
 				<canvas id="Record" width="500" height="300" style="border:1px solid"></canvas>
 				<script>
 					var c = document.getElementById("Record");
 					var ctx = c.getContext("2d");
+					var ctx2 = c.getContext("2d");
 
 					ctx.beginPath();
 					ctx.arc(250, 150, 100, 0, 2*Math.PI);
 					ctx.stroke();
 					ctx.fillStyle = "black";
 					ctx.fill();
+					
+					ctx2.beginPath();
+					ctx2.arc(250, 150, 70, 0, 2*Math.PI);
+					ctx2.stroke();
+					ctx2.fillStyle = "red";
+					ctx2.fill();
+					
 
-					window.onload = function(){
-						var album = c.getContext("2d");
-						var img = document.getElementById("b4");
-						album.drawImage(img, 170, 70, 160, 160);
-					}
 				</script>
+				<input type="button" id="play" value="play">
+				<input type="button" id="pause" value="pause">			
+				<input type="button" id="stop" value="stop">
 			</div>
 		</div>
 	</body>
