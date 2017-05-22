@@ -5,8 +5,9 @@
 		<title>K-HCI</title>
 	</head>
 	<body>
-		<script src="./khci-player.js"></script>
+<!--		<script src="./khci-player.js"></script>-->
 		<div class="center-div">
+			<img id="b4" width="80" height="80" src="./images/b4.png">
 			<div class="search">
 				<input type="text">
 				<input type="button" value="search">
@@ -22,11 +23,18 @@
 				<script>
 					var c = document.getElementById("Record");
 					var ctx = c.getContext("2d");
+					
 					ctx.beginPath();
 					ctx.arc(250, 150, 100, 0, 2*Math.PI);
+					ctx.stroke();
 					ctx.fillStyle = "black";
 					ctx.fill();
-					ctx.stroke();
+					
+					window.onload = function(){						
+						var album = c.getContext("2d");
+						var img = document.getElementById("b4");
+						album.drawImage(img, 170, 70, 160, 160);
+					}
 				</script>
 			</div>
 		</div>
