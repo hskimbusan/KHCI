@@ -31,5 +31,23 @@
 }
 
 body{
-	background-color: #fefefe;
+	background-color: #fff;
+}
+
+.playlist{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 165px;
+	width: 500px;
+	white-space: nowrap;
+	overflow: auto;
+}
+
+.play{
+	font-size: 16px;
+	color: #fff;
+	padding:10px;
+	border:0px;
+	outline:none;
+	background:#1b5ac2;
 }

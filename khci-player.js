@@ -21,7 +21,7 @@ $(document).ready(function(){
 			for (i = 0; i < songs.length; i++){
 				if (ui.item.value == songs[i]["title"]){
 					document.getElementById("playlist").innerHTML +=
-						'<img id="song" data-selector='+play_list.length+' width="140" height="140" src='+songs[i]["image"] +' draggable="true">';
+						'<img id="song" data-selector='+play_list.length+' width="140" height="140" src='+songs[i]["image"] +' draggable=true>';
 					play_list.push(songs[i]);
 				}
 			}
