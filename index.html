@@ -8,6 +8,7 @@
 	<body>
     	<script src="./jquery-3.2.1.min.js"></script>
 		<script src="./khci-player.js"></script>
+		<script src="./songs.js"></script>
       	<script src="jquery/js/jquery-1.9.0.min.js"></script>
       	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 		<div class="center-div">
@@ -15,7 +16,7 @@
 	      <input type='text' placeholder='볼빨간 사춘기' id='search_input'>
 	      <button id='search_button'> 검색
 	    </div>
-			<div class="library">
+			<div class="library" hidden="true">
 				<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
 				<script>
 					var c = document.getElementById("library");
@@ -29,10 +30,10 @@
 					
 				</script>
 			</div>
-			<div class="playlist">
-				<img id="b4" width="140" height="140" src="./images/b4.png">
-				<img id="bb" width="140" height="140" src="./images/bb.png">
-				<img id="akmu" width="140" height="140" src="./images/akmu.png">
+			<div class="playlist" id="playlist" style="height:150px; width:500px; overflow:auto">
+				<img id="b4" width="140" height="140" src="./images/b4.png" draggable="true">
+				<img id="bb" width="140" height="140" src="./images/bb.png" draggable="true">
+				<img id="akmu" width="140" height="140" src="./images/akmu.png" draggable="true">
 			</div>
 			<div class="player">
 				<canvas id="Record" width="500" height="300" style="border:1px solid"></canvas>
