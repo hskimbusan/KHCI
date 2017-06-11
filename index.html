@@ -15,7 +15,7 @@
 		<div class="center-div">
 			<div class="title">K-HCI Music Player</div>
 			<div id='search_bar'>
-	      		<input type='text' placeholder='볼빨간 사춘기' id='search_input'>
+	      		<input type='text' placeholder='제목' id='search_input'>
 	      		<button id='search_button'> 검색 </button>
 	    	</div>
 			<div class="library" hidden="true">
@@ -39,6 +39,7 @@
 			</div>
 			<div class="player">
 				<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
+				<div id="angle"></div>
 				<script>
 					var c = document.getElementById("Record");
 					var ctx = c.getContext("2d");
