@@ -21,16 +21,24 @@ $(document).ready(function(){
 			for (i = 0; i < songs.length; i++){
 				if (ui.item.value == songs[i]["title"]){
 					document.getElementById("playlist").innerHTML +=
-						'<img id="song" data-selector='+play_list.length+' width="140" height="140" src='+songs[i]["image"] +' draggable=true>';
+						'<img id="song" data-selector='+play_list.length+' src='+songs[i]["image"] +' draggable="true">';
 					play_list.push(songs[i]);
 				}
 			}
 			return false;
 		}
 	});
+
+	$(document).on("dragstart", "#song", function(event){
+		event.originalEvent.dataTransfer.setData("text", $(this).data("selector"));
+	});
 	
-    $(document).on("click", "#song", function() {
-        var i = $(this).data('selector');
+	$("canvas").on("drop", function(event){
+		var data = event.originalEvent.dataTransfer.getData("text");
+		play_song(data);
+	});
+	
+	function play_song(i){
 		audio.pause();
 		audio = new Audio(play_list[i].audio);
 		audio.play();
@@ -48,8 +56,13 @@ $(document).ready(function(){
 		var album = c.getContext("2d");
 		var img = new Image();
 		img.src = play_list[i].image;
-		album.drawImage(img, 170, 70, 160, 160);
-    });
+		album.drawImage(img, 170, 70, 160, 160);		
+	}
+	/*
+    $(document).on("click", "#song", function() {
+        var i = $(this).data('selector');
+		play_song(i);
+    });*/
 	
 	$("#play").click(function(){
 		audio.play();
@@ -63,4 +76,5 @@ $(document).ready(function(){
 	});
 	
 	clearPlaylist();
+
 });

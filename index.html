@@ -3,6 +3,7 @@
 	<head>
 		<link href="khci-player.css" rel="stylesheet" />
     	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Arbutus|Open+Sans" rel="stylesheet">
 		<title>K-HCI</title>
 	</head>
 	<body>
@@ -12,10 +13,11 @@
       	<script src="jquery/js/jquery-1.9.0.min.js"></script>
       	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 		<div class="center-div">
+			<div class="title">K-HCI Music Player</div>
 			<div id='search_bar'>
-	      <input type='text' placeholder='볼빨간 사춘기' id='search_input'>
-	      <button id='search_button'> 검색
-	    </div>
+	      		<input type='text' placeholder='볼빨간 사춘기' id='search_input'>
+	      		<button id='search_button'> 검색 </button>
+	    	</div>
 			<div class="library" hidden="true">
 				<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
 				<script>
@@ -31,12 +33,12 @@
 				</script>
 			</div>
 			<div class="playlist" id="playlist">
-				<img id="b4" width="140" height="140" src="./images/b4.png" draggable="true">
-				<img id="bb" width="140" height="140" src="./images/bb.png" draggable="true">
-				<img id="akmu" width="140" height="140" src="./images/akmu.png" draggable="true">
+				<img id="song" data-selector=0 src="./images/b4.png" draggable="true">
+				<img id="song" data-selector=1 src="./images/bb.png" draggable="true">
+				<img id="song" data-selector=2 src="./images/akmu.png" draggable="true">
 			</div>
 			<div class="player">
-				<canvas id="Record" width="500" height="300" style="border:1px solid #1b5ca2"></canvas>
+				<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
 				<script>
 					var c = document.getElementById("Record");
 					var ctx = c.getContext("2d");
@@ -54,10 +56,15 @@
 					ctx2.fillStyle = "red";
 					ctx2.fill();
 				</script>
-				<input type="button" class="play" id="play" value="play">
-				<input type="button" class="play" id="pause" value="pause">			
-				<input type="button" class="play" id="stop" value="stop">
+				<button class="play" id="play">play</button>
+				<button class="play" id="pause">pause</button>
+				<button class="play" id="stop">stop</button>
 			</div>
 		</div>
 	</body>
+	<script>
+		function allowDrop(ev){
+			ev.preventDefault();
+		}
+	</script>
 </html>

@@ -1,14 +1,14 @@
 .center-div{
     margin: 0 auto;
-    width: 540px;
+    width: 500px;
 }
 
 #search_bar {
-  text-align: center;
-  height: 40px;
-  width: 500px;
-  border: 1px solid #1b5ac2;
-  background: #ffffff
+  	text-align: center;
+  	height: 40px;
+  	width: 500px;
+  	border: 1px solid #1b5ac2;
+  	background: #ffffff;
 }
 
 #search_input {
@@ -21,13 +21,13 @@
 }
 
 #search_button {
-  width: 50px;
-  height: 100%;
-  border: 0px;
-  background: #1b5ac2;
-  outline: none;
-  float: right;
-  color: #ffffff;
+  	width: 50px;
+  	height: 100%;
+  	border: 0px;
+  	background: #1b5ac2;
+  	outline: none;
+  	float: right;
+  	color: #ffffff;
 }
 
 body{
@@ -41,7 +41,7 @@ body{
 	width: 500px;
 	white-space: nowrap;
 	overflow: auto;
-}
+}	
 
 .play{
 	font-size: 16px;
@@ -50,4 +50,17 @@ body{
 	border:0px;
 	outline:none;
 	background:#1b5ac2;
+	font-family: 'Arbutus', cursive;
+}
+
+.title{
+	font-size: 24px;
+	color: #1b5ac2;
+	margin-left: 5px;
+	font-family: 'Arbutus', cursive;
+}
+
+#song{
+	width: 140px;
+	height: 140px;
 }
