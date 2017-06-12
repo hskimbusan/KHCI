@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link href="khci-player.css" rel="stylesheet" />
-    	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/css?family=Arbutus|Open+Sans" rel="stylesheet">
-		<title>K-HCI</title>
-	</head>
-	<body>
-    	<script src="./jquery-3.2.1.min.js"></script>
-		<script src="./khci-player.js"></script>
-		<script src="./songs.js"></script>
-      	<script src="jquery/js/jquery-1.9.0.min.js"></script>
-      	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-		<div class="center-div">
-			<div class="title">K-HCI Music Player</div>
-			<div id='search_bar'>
-	      		<input type='text' placeholder='제목' id='search_input'>
-	      		<button id='search_button'> 검색 </button>
-	    	</div>
-			<div class="library" hidden="true">
-				<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
-				<script>
-					var c = document.getElementById("library");
-					var ctx = c.getContext("2d");
-					ctx.rect(20, 20, 460, 60);
-					ctx.stroke();
-					
-					var song1 = c.getContext("2d");
-					song1.rect(25, 22, 20, 56);
-					song1.stroke();
-					
-				</script>
-			</div>
-			<div class="playlist" id="playlist">
-				<img id="song" data-selector=0 src="./images/b4.png" draggable="true">
-				<img id="song" data-selector=1 src="./images/bb.png" draggable="true">
-				<img id="song" data-selector=2 src="./images/akmu.png" draggable="true">
-			</div>
-			<div class="player">
-				<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
-				<div id="angle"></div>
-				<script>
-					var c = document.getElementById("Record");
-					var ctx = c.getContext("2d");
-					var ctx2 = c.getContext("2d");
 
-					ctx.beginPath();
-					ctx.arc(250, 150, 100, 0, 2*Math.PI);
-					ctx.stroke();
-					ctx.fillStyle = "black";
-					ctx.fill();
-					
-					ctx2.beginPath();
-					ctx2.arc(250, 150, 70, 0, 2*Math.PI);
-					ctx2.stroke();
-					ctx2.fillStyle = "red";
-					ctx2.fill();
-				</script>
-				<button class="play" id="play">play</button>
-				<button class="play" id="pause">pause</button>
-				<button class="play" id="stop">stop</button>
-			</div>
+<head>
+	<link href="khci-player.css" rel="stylesheet" />
+	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Arbutus|Open+Sans" rel="stylesheet">
+	<title>K-HCI</title>
+</head>
+
+<body>
+	<script src="./jquery-3.2.1.min.js"></script>
+	<script src="./khci-player.js"></script>
+	<script src="./songs.js"></script>
+	<script src="jquery/js/jquery-1.9.0.min.js"></script>
+	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+	<div class="center-div">
+		<div class="title">K-HCI Music Player</div>
+		<div id='search_bar'>
+			<input type='text' placeholder='제목' id='search_input'>
+			<button id='search_button'> 검색 </button>
 		</div>
-	</body>
-	<script>
-		function allowDrop(ev){
-			ev.preventDefault();
-		}
-	</script>
+		<div class="library" hidden="true">
+			<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
+			<script>
+				var c = document.getElementById("library");
+				var ctx = c.getContext("2d");
+				ctx.rect(20, 20, 460, 60);
+				ctx.stroke();
+
+				var song1 = c.getContext("2d");
+				song1.rect(25, 22, 20, 56);
+				song1.stroke();
+			</script>
+		</div>
+		<div class="playlist" id="playlist">
+			<img id="song" data-selector=0 src="./images/b4.png" draggable="true">
+			<img id="song" data-selector=1 src="./images/bb.png" draggable="true">
+			<img id="song" data-selector=2 src="./images/akmu.png" draggable="true">
+		</div>
+		<div class="player">
+			<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
+			<div id="angle"></div>
+			<script>
+				var c = document.getElementById("Record");
+				var ctx = c.getContext("2d");
+				var ctx2 = c.getContext("2d");
+
+				ctx.beginPath();
+				ctx.arc(250, 150, 100, 0, 2 * Math.PI);
+				ctx.stroke();
+				ctx.fillStyle = "black";
+				ctx.fill();
+
+				ctx2.beginPath();
+				ctx2.arc(250, 150, 70, 0, 2 * Math.PI);
+				ctx2.stroke();
+				ctx2.fillStyle = "red";
+				ctx2.fill();
+			</script>
+			<button class="play" id="play">play</button>
+			<button class="play" id="pause">pause</button>
+			<button class="play" id="stop">stop</button>
+		</div>
+	</div>
+</body>
+<script>
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+</script>
+
 </html>
