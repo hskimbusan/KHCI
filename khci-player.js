@@ -2,6 +2,7 @@ $(document).ready(function() {
   var audio = new Audio();
 
   var title_list = [];
+//  var singer_list = [];
   var play_list = [];
 
   var current_song = -1;
@@ -24,11 +25,14 @@ $(document).ready(function() {
 
   for (i = 0; i < songs.length; i++) {
     title_list.push(songs[i]["title"]);
+ //   singer_list.push(songs[i]["singer"]);
   }
   console.log(title_list);
+  //console.log(singer_list);
 
   function clearPlaylist() {
     title_list = [];
+//    singer_list = [];
     $("#playlist").html("");
   }
 
@@ -42,7 +46,7 @@ $(document).ready(function() {
     select: function(event, ui) {
       for (i = 0; i < songs.length; i++) {
         if (ui.item.value == songs[i]["title"]) {
-          if (confirm(songs[i]["title"] + "을(를) 재생하시겠습니까?")) {
+          if (confirm(songs[i]["title"] + "을(를) 재생 목록에 추가하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
               '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true">';
             play_list.push(songs[i]);
@@ -55,6 +59,30 @@ $(document).ready(function() {
       return false;
     }
   });
+  /* 시간되면 가수로 검색하는거도 구현해 보려 했으나...
+  $("#search_input").autocomplete({
+    minLength: 2,
+    source: singer_list,
+		focus: function(event, ui) {
+			$("#search_input").val(ui.item.value)
+			return false;
+		},
+    select: function(event, ui) {
+      for (i = 0; i < songs.length; i++) {
+        if (ui.item.value == songs[i]["singer"]) {
+          if (confirm(songs[i]["title"] + "을(를) 재생 목록에 추가하시겠습니까?")) {
+            document.getElementById("playlist").innerHTML +=
+              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true">';
+            play_list.push(songs[i]);
+          }
+					else {
+						$("#search_input").val('')
+					}
+        }
+      }
+      return false;
+    }
+  });*/
 
 	// 자동 완성에 앨범 아트 띄우기
   $("#search_input").data("ui-autocomplete")._renderItem = function(ul, item) {
@@ -80,15 +108,29 @@ $(document).ready(function() {
 
   $("canvas").on("drop", function(event) {
     var data = event.originalEvent.dataTransfer.getData("text");
-    play_song(parseInt(data));
+    data = parseInt(data);
+    
+    console.log($("[id=song]")[data]);
+    
+    play_song(data);
   });
 
-  function play_song(i) {
+  function play_song(data) {
+    for (i = 0; i < play_list.length; i++){
+      if (i == data){
+        $("[id=song]")[i].style = "border-bottom: 5px solid #ccddff";
+      }
+      else{
+        $("[id=song]")[i].style = "";
+      }
+    }
+    
+    
     audio.pause();
-    audio = new Audio(play_list[i].audio);
+    audio = new Audio(play_list[data].audio);
     audio.play();
-    console.log(play_list[i]);
-    current_song = i;
+    console.log(play_list[data]);
+    current_song = data;
     render(current_song);
 
     audio.addEventListener("timeupdate", timeUpdate, true);
