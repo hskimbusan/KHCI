@@ -48,7 +48,7 @@ $(document).ready(function() {
         if (ui.item.value == songs[i]["title"]) {
           if (confirm(songs[i]["title"] + "을(를) 재생 목록에 추가하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
-              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true">';
+              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff">';
             play_list.push(songs[i]);
           }
 					else {
@@ -121,7 +121,7 @@ $(document).ready(function() {
         $("[id=song]")[i].style = "border-bottom: 5px solid #ccddff";
       }
       else{
-        $("[id=song]")[i].style = "";
+        $("[id=song]")[i].style = "border-bottom: 5px solid #fff";
       }
     }
     
