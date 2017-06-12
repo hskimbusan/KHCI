@@ -42,7 +42,7 @@ $(document).ready(function() {
     select: function(event, ui) {
       for (i = 0; i < songs.length; i++) {
         if (ui.item.value == songs[i]["title"]) {
-          if (confirm(songs[i]["title"] + "을/를 재생하시겠습니까?")) {
+          if (confirm(songs[i]["title"] + "을(를) 재생하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
               '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true">';
             play_list.push(songs[i]);
@@ -67,7 +67,7 @@ $(document).ready(function() {
 					style : 'width : 80px; height : 80px'
 		    });
 		    $li.append('<a href="#">');
-		    $li.find('a').append($img).append(songs[i]['title'])
+		    $li.find('a').append($img).append(songs[i]['singer']+ " - " + songs[i]['title'])
 			}
 		}
     return $li.appendTo(ul);
